@@ -45,5 +45,8 @@ In this example, we build an [nginx-based static website](https://igou.io/blog/2
 ```
 docker build -t purser-server:v1 .
 kubectl apply -f purser-deployment.yaml
-kubectl expose deployment purser --type=LoadBalancer --name=purser-service
+kubectl apply -f purser-service.yaml
+kubectl apply -f purser-ingress.yaml
 ```
+
+The html files are served via nginx at the advertised ingress (e.g., http://localhost/).
