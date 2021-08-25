@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: hello-kubernetes
+  name: purser-deployment
+  labels:
+    app: website
+spec:
+  replicas: 3 #Don't talk to me unless your static website is HA
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      containers:
+      - env:
+        image: purser-server:v2 
+        imagePullPolicy: IfNotPresent
+        name: purser-deployment
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 30
+

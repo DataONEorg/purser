@@ -38,4 +38,12 @@ kubectl delete services hello-service
 kubectl delete deployment hello-world
 ```
 
+### Simple nginx-based static site example
 
+In this example, we build an [nginx-based static website](https://igou.io/blog/20191108-static-website-in-a-container/) with a custom image that contains static files to be served.  Start by building the image to be used based on the `Dockerfile` definition:
+
+```
+docker build -t purser-server:v1 .
+kubectl apply -f purser-deployment.yaml
+kubectl expose deployment purser --type=LoadBalancer --name=purser-service
+```
