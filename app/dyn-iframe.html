@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Purser Payment</h1>
+    <p>Dynamic IFrame</p>
+    <div id="pay-frame">
+		<button id="paybutton">Setup payment</button>
+	</div>
+
+	<script type="text/javascript">
+		var paydiv = document.getElementById("pay-frame");
+
+		// create iframe
+		var payframe = document.createElement("iframe");
+		// Add attributes
+		payframe.src = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=11181&amount=13.13";
+		// Set size and hide iframe border
+		payframe.width = "1200";
+		payframe.height = "1000";
+		payframe.frameBorder ="0";
+		payframe.scrolling = "no";
+		payframe.seamless = "seamless";
+		payframe.style.border= "none";
+		payframe.style.background = "white";
+
+		// event to trigger iframe loading
+		document.getElementById("paybutton").addEventListener("click", function(){
+			// Add Iframe to webpage
+			paydiv.appendChild(payframe);
+			// Hide button
+			this.style.display = "none";
+		})
+	</script>
+</body>
+</html>
