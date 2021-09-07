@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - env:
-        image: purser-server:v2 
+        image: purser-server:v6
         imagePullPolicy: IfNotPresent
         name: purser-deployment
         ports:
