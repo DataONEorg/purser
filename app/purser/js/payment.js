@@ -23,6 +23,9 @@ function calc_total() {
     if (document.getElementById('dataoneplus').checked) {
         total += prices().dataoneplus;
     }
+    if (document.getElementById('hastorage').checked) {
+        total += prices().hastorage;
+    }
     return(total);
 }
 

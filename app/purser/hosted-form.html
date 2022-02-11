@@ -15,10 +15,34 @@
 
         <div class="product-select" id="products">
             <p>Select products for payment:</p>
-            <input type="checkbox" id="dataoneplus" name="DataONEPlus">
-            <label for="DataONEPlus">DataONE Plus</label>
-            <input type="checkbox" id="hostedrepo" name="HostedRepo">
-            <label for="HostedRepo">Hosted Repository</label>
+            <section id="ptable">
+                <header>
+                  <div class="col"></div>
+                  <div class="col">Price</div>
+                </header>
+                <div class="row">
+                  <div class="col">            
+                    <input type="checkbox" id="dataoneplus" name="DataONEPlus">
+                    <label for="DataONEPlus">DataONE Plus</label>
+                    </div>
+                    <div class="col">$575.04</div>
+                </div>
+                <div class="row">
+                    <div class="col">            
+                        <input type="checkbox" id="hostedrepo" name="HostedRepo">
+                        <label for="HostedRepo">Hosted Repository</label>        
+                    </div>
+                    <div class="col">$12,999.96</div>
+                </div>
+                <div class="row">
+                    <div class="col">            
+                        <input type="checkbox" id="hastorage" name="HAStorage">
+                        <label for="HAStorage">HA Storage (1 TB)</label>        
+                    </div>
+                    <div class="col">$150.00</div>
+                </div>
+            </section>
+
             <button id="checkout"><span>Checkout</span></button>
             <script type="text/javascript" src="js/payment.js"></script>
         </div>

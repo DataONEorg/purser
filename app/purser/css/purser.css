@@ -44,3 +44,17 @@ button {
     display: none;
     transition: all 0.5s;
   }
+
+  section#ptable {
+    display: table;
+    width: 30%;
+    margin-bottom: 2rem;
+  }
+  
+  section#ptable > * {
+    display: table-row;
+  }
+  
+  section#ptable .col {
+    display: table-cell;
+  }
