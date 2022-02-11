@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="css/purser.css">	
-    <title>Purser</title>
+    <title>DataONE Purser</title>
 </head>
 <body>
-    <h1>Purser Payment</h1>
-    <p>Hosted Form</p>
-    <iframe src="https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721&amount=575.00&orderid=10501"
+    <div class="container">
+
+        <div class="header">
+            <img src="img/dataone-logo.png">
+            <h1>Payment</h1>
+        </div>
+
+        <p>Select products for payment:</p>
+        <div class="product-select">
+            <input type="checkbox" id="dataoneplus" name="DataONEPlus">
+            <label for="DataONEPlus">DataONE Plus</label>
+            <input type="checkbox" id="hostedrepo" name="HostedRepo">
+            <label for="HostedRepo">Hosted Repository</label>
+            <button id="checkout"><span>Checkout</span></button>
+            <script type="text/javascript" src="js/payment.js"></script>
+        </div>
+        <div id="iframe-target">
+        </div>
+        <iframe id="pay-frame" 
+        src=""
         frameborder="0"
-        height="1000"
-        width="1200"
+        height="600"
+        width="600"
         scrolling="no"
         seamless="seamless">
     </iframe>
+        
+    </div>
 </body>
 </html>

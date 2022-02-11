@@ -1,49 +1,57 @@
-// var paymentiFrame = new PaymentiFrame({
-//  create: true,
-//  iframeId: "payment_iframe",
-//  settings: {
-//      account         : "220614974061",
-//      parentId        : "pay-frame",
-//      lang            : "en",
-//      cvv             : "required",
-//      expy            : "single_input",
-//      layout          : "1",
-//      inputFontFamily : "13",
-//      inputStyle      : "1",
-//      labelFontSize   : "14",
-//      labelFontColor  : "#000000",
-//      style           : "background-color:#FFFFFF; border-radius: 20px; padding:20px;",
-//      width           : "300px",
-//      height          : "140px",
-//      showFrame       : false,
-//      devServer       : "https://cert.payconex.net",
-//      onload          : function(){ alert("The Payment iFrame has loaded") }
-//  }
-// });
 
-function process_payment_info() {
-    alert( "Processed!" );
+// Service	Unit	Rate
+// DataONE Plus	year	$575.04
+// Hosted Repository	year	$12,999.96
+// HA Storage	TB/year	$150.00
+// Data Curation	day	$689.00
+// Design / Development	day	$915.00
+function prices() {
+    prices_ = {};
+    prices_.dataoneplus = 575.04;
+    prices_.hostedrepo = 12999.96
+    prices_.hastorage = 150.00
+    prices_.curation = 689.00
+    prices_.development = 915.00
+    return(prices_);
 }
 
-// function process_payment_info() {
-//     paymentiFrame.encrypt({
-//         failure : function (err) {
-//             alert("Error: " + err.id + " -> " + err.message );
-//         },
-//         invalidInput :function (data) {
-//             for ( var i = 0; i < data.invalidInputs.length; i++ ){
-//                 alert("Error: " + data.invalidInputs[i].code + " -> " + data.invalidInputs[i].message );
-//             }
-//         },
-//         success : function (res) {
-//             alert( "id " + res.id + " token=>" + res.eToken );
-//         }
-//     })
-//     return false;
-// }
+function calc_total() {
+    var total = 0;
+    if (document.getElementById('hostedrepo').checked) {
+        total += prices().hostedrepo;
+    }
+    if (document.getElementById('dataoneplus').checked) {
+        total += prices().dataoneplus;
+    }
+    return(total);
+}
 
-var paybutton = document.getElementById("pay-now");
-if (paybutton.addEventListener)
-    paybutton.addEventListener("click", process_payment_info, false);
-else if (paybutton.attachEvent)
-    paybutton.attachEvent('onclick', process_payment_info);
+function find_order_id() {
+    var oid = "89000";
+    return(oid);
+}
+
+function update_iframe(target_url) {
+    document.getElementById('pay-frame').src = target_url;
+}
+
+function process_payment_info() {
+    var amount = calc_total();
+    if (amount > 0) {
+        var orderid = find_order_id();
+        var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
+        var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid;
+        update_iframe(payment_url);
+    } else {
+        update_iframe(" ");
+        alert( "Your cart is empty. Select products and try again.");
+    }
+}
+
+//var iframe = document.getElementById('pay-frame');
+
+var checkout_button = document.getElementById("checkout");
+if (checkout_button.addEventListener)
+    checkout_button.addEventListener("click", process_payment_info, false);
+else if (checkout_button.attachEvent)
+    checkout_button.attachEvent('onclick', process_payment_info);
