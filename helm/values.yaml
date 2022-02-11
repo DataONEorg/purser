@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: purser
-  pullPolicy: IfNotPresent
+  repository: ghcr.io/dataoneorg/purser
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.9.0"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
