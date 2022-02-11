@@ -3,14 +3,14 @@
 }
 button {
     display: inline-block;
-    background-color: #7b38d8;
+    background-color: #134b47;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #eeeeee;
     text-align: center;
     font-size: 28px;
-    padding: 20px;
-    width: 200px;
+    padding: 8px;
+    width: 7em;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -30,7 +30,7 @@ button {
     transition: 0.5s;
   }
   button:hover {
-    background-color: #f7c2f9;
+    background-color: #26435C;
   }
   button:hover span {
     padding-right: 25px;
@@ -40,6 +40,7 @@ button {
     right: 0;
   }
 
-  .pay-frame {
+  .hidden {
     display: none;
+    transition: all 0.5s;
   }
