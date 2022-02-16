@@ -29,8 +29,12 @@ function calc_total() {
     return(total);
 }
 
-function find_order_id() {
-    var oid = "89000";
+function random_orderid(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  } 
+
+function create_order() {
+    var oid = random_orderid(10500,99999)
     return(oid);
 }
 
@@ -42,10 +46,10 @@ function hide_products() {
     document.getElementById( 'products' ).classList.add("hidden");
 }
 
-function process_payment_info() {
+function checkout() {
     var amount = calc_total();
     if (amount > 0) {
-        var orderid = find_order_id();
+        var orderid = create_order();
         var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
         var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid;
         hide_products();
@@ -59,8 +63,8 @@ function process_payment_info() {
 window.onload = function(){
     var checkout_button = document.getElementById("checkout");
     if (checkout_button.addEventListener)
-        checkout_button.addEventListener("click", process_payment_info, false);
+        checkout_button.addEventListener("click", checkout, false);
     else if (checkout_button.attachEvent)
-        checkout_button.attachEvent('onclick', process_payment_info);
+        checkout_button.attachEvent('onclick', checkout);
 }
 
