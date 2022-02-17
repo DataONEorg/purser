@@ -58,3 +58,7 @@ button {
   section#ptable .col {
     display: table-cell;
   }
+
+  section#ptable .qinput {
+    width: 1.5rem;
+  }

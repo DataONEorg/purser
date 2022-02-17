@@ -15,16 +15,26 @@ function prices() {
     return(prices_);
 }
 
+function quantity(field) {
+    var quantity = 1;
+    var value = document.getElementById(field).value;
+    //total += prices().hostedrepo;
+    return(value);
+}
+
 function calc_total() {
     var total = 0;
     if (document.getElementById('hostedrepo').checked) {
-        total += prices().hostedrepo;
+        q = quantity('hostedrepo_q');
+        total += q*prices().hostedrepo;
     }
     if (document.getElementById('dataoneplus').checked) {
-        total += prices().dataoneplus;
+        q = quantity('dataoneplus_q');
+        total += q*prices().dataoneplus;
     }
     if (document.getElementById('hastorage').checked) {
-        total += prices().hastorage;
+        q = quantity('hastorage_q');
+        total += q*prices().hastorage;
     }
     return(total);
 }
