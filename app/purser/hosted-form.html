@@ -23,33 +23,43 @@
                 </header>
                 <div class="row">
                     <div class="col">            
-                        <input type="checkbox" id="dataoneplus" name="DataONEPlus">
+                        <input type="checkbox" id="dataoneplus" name="DataONEPlus" onchange="change_listener()">
                         <label for="DataONEPlus">DataONE Plus</label>
                     </div>
                     <div class="col">            
-                        <input type="input" id="dataoneplus_q" name="DataONEPlusQ" class="qinput" value="1">
+                        <input type="input" id="dataoneplus_q" name="DataONEPlusQ" class="qinput" value="1" onchange="change_listener()">
                     </div>
-                    <div class="col">$575.04</div>
+                    <div class="col currency">575.04</div>
                 </div>
                 <div class="row">
                     <div class="col">            
-                        <input type="checkbox" id="hostedrepo" name="HostedRepo">
+                        <input type="checkbox" id="hostedrepo" name="HostedRepo" onchange="change_listener()">
                         <label for="HostedRepo">Hosted Repository</label>        
                     </div>
                     <div class="col">            
-                        <input type="input" id="hostedrepo_q" name="HostedRepoQ" class="qinput" value="1" disabled="disabled">
+                        <input type="input" id="hostedrepo_q" name="HostedRepoQ" class="qinput" value="1" disabled="disabled" onchange="change_listener()">
                     </div>
-                    <div class="col">$12,999.96</div>
+                    <div class="col currency">12,999.96</div>
                 </div>
                 <div class="row">
                     <div class="col">            
-                        <input type="checkbox" id="hastorage" name="HAStorage">
+                        <input type="checkbox" id="hastorage" name="HAStorage" onchange="change_listener()">
                         <label for="HAStorage">HA Storage (1 TB)</label>        
                     </div>
                     <div class="col">            
-                        <input type="input" id="hastorage_q" name="HAStorageQ" class="qinput" value="1">
+                        <input type="input" id="hastorage_q" name="HAStorageQ" class="qinput" value="1" onchange="change_listener()">
                     </div>
-                    <div class="col">$150.00</div>
+                    <div class="col currency">150.00</div>
+                </div>
+                <div class="row">
+                    <div class="col">&nbsp;</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Total: </div>
+                    <div class="col currency" id="total_price">0.00</div>
                 </div>
             </section>
 

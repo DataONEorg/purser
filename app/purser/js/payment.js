@@ -15,6 +15,10 @@ function prices() {
     return(prices_);
 }
 
+function change_listener() {
+    document.getElementById('total_price').innerText = calc_total();
+}
+
 function quantity(field) {
     var quantity = 1;
     var value = document.getElementById(field).value;
@@ -79,7 +83,6 @@ function checkout() {
         var orderid = create_order();
         var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
         var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid + "&products=" + prod_list;
-        alert(payment_url)
         hide_products();
         update_iframe(payment_url);
     } else {

@@ -62,3 +62,7 @@ button {
   section#ptable .qinput {
     width: 1.5rem;
   }
+
+  .currency::before {
+    content:"$";
+}
