@@ -11,7 +11,7 @@ function prices() {
     prices_.hostedrepo = 12999.96
     prices_.hastorage = 150.00
     prices_.curation = 689.00
-    prices_.development = 915.00
+    prices_.customdev = 915.00
     return(prices_);
 }
 
@@ -39,6 +39,15 @@ function calc_total() {
         q = quantity('hastorage_q');
         total += q*prices().hastorage;
     }
+    if (document.getElementById('curation').checked) {
+        q = quantity('curation_q');
+        total += q*prices().curation;
+    }
+    if (document.getElementById('customdev').checked) {
+        q = quantity('customdev_q');
+        total += q*prices().customdev;
+    }
+
     return(total);
 }
 
@@ -56,6 +65,15 @@ function products_selected() {
         q = quantity('hastorage_q');
         products += "HAStorage(" + q + ");";
     }
+    if (document.getElementById('curation').checked) {
+        q = quantity('curation_q');
+        products += "Curation(" + q + ");";
+    }
+    if (document.getElementById('customdev').checked) {
+        q = quantity('customdev_q');
+        products += "CustomDev(" + q + ");";
+    }
+
     return(products);
 }
 
