@@ -29,6 +29,20 @@ function calc_total() {
     return(total);
 }
 
+function products_selected() {
+    var products = "";
+    if (document.getElementById('hostedrepo').checked) {
+        products += "HostedRepo(1);";
+    }
+    if (document.getElementById('dataoneplus').checked) {
+        products += "DataONEPlus(1);";
+    }
+    if (document.getElementById('hastorage').checked) {
+        products += "HAStorage(1);";
+    }
+    return(products);
+}
+
 function random_orderid(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   } 
@@ -48,10 +62,11 @@ function hide_products() {
 
 function checkout() {
     var amount = calc_total();
+    var prod_list = products_selected();
     if (amount > 0) {
         var orderid = create_order();
         var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
-        var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid;
+        var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid + "&products=" + prod_list;
         hide_products();
         update_iframe(payment_url);
     } else {
