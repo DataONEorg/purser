@@ -18,7 +18,6 @@ function prices() {
 function quantity(field) {
     var quantity = 1;
     var value = document.getElementById(field).value;
-    //total += prices().hostedrepo;
     return(value);
 }
 
@@ -42,13 +41,16 @@ function calc_total() {
 function products_selected() {
     var products = "";
     if (document.getElementById('hostedrepo').checked) {
-        products += "HostedRepo(1);";
+        q = quantity('hostedrepo_q');
+        products += "HostedRepo(" + q + ");";
     }
     if (document.getElementById('dataoneplus').checked) {
-        products += "DataONEPlus(1);";
+        q = quantity('dataoneplus_q');
+        products += "DataONEPlus(" + q + ");";
     }
     if (document.getElementById('hastorage').checked) {
-        products += "HAStorage(1);";
+        q = quantity('hastorage_q');
+        products += "HAStorage(" + q + ");";
     }
     return(products);
 }
@@ -77,6 +79,7 @@ function checkout() {
         var orderid = create_order();
         var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
         var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid + "&products=" + prod_list;
+        alert(payment_url)
         hide_products();
         update_iframe(payment_url);
     } else {
