@@ -14,55 +14,64 @@ button {
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
-  }
-  button span {
+}
+
+button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  button span:after {
+}
+
+button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
-  button:hover {
+}
+
+button:hover {
     background-color: #26435C;
-  }
-  button:hover span {
+}
+
+button:hover span {
     padding-right: 25px;
-  }
-  button:hover span:after {
+}
+
+button:hover span:after {
     opacity: 1;
     right: 0;
-  }
+}
 
-  .hidden {
+.hidden {
     display: none;
     transition: all 0.5s;
-  }
+}
 
-  section#ptable {
+section#ptable {
     display: table;
     width: 30%;
     margin-bottom: 2rem;
-  }
+}
   
-  section#ptable > * {
+section#ptable > * {
     display: table-row;
-  }
+}
   
-  section#ptable .col {
+section#ptable .col {
     display: table-cell;
-  }
+}
 
-  section#ptable .qinput {
+section#ptable .qinput {
     width: 1.5rem;
-  }
+}
 
-  .currency::before {
+.currency::before {
     content:"$";
+}
+
+.right-text {
+  text-align: end;
 }
