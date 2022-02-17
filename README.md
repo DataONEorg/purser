@@ -2,7 +2,7 @@
 
 Purser provides payment services and a web interface for DataONE.
 
-- Version: 0.3.0 (pre-release)
+- Version: 0.4.0 (pre-release)
 - Repo Status: Work in Progress (WIP)
 
 This is an experimental, untested work in progress. Use with caution.
