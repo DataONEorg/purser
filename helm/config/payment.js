@@ -1,20 +1,3 @@
-
-// Service	Unit	Rate
-// DataONE Plus	year	$575.04
-// Hosted Repository	year	$12,999.96
-// HA Storage	TB/year	$150.00
-// Data Curation	day	$689.00
-// Design / Development	day	$915.00
-function prices() {
-    prices_ = {};
-    prices_.dataoneplus = 575.04;
-    prices_.hostedrepo = 12999.96
-    prices_.hastorage = 150.00
-    prices_.curation = 689.00
-    prices_.customdev = 915.00
-    return(prices_);
-}
-
 function change_listener() {
     document.getElementById('total_price').innerText = calc_total();
 }
@@ -99,7 +82,8 @@ function checkout() {
     var prod_list = products_selected();
     if (amount > 0) {
         var orderid = create_order();
-        var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
+        //var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
+        var pay_base_url = config.purser.purser_url + "&aid=" + config.purser.client_key + "&id=" + config.purser.form_id;
         var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid + "&products=" + prod_list;
         hide_products();
         update_iframe(payment_url);
