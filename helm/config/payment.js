@@ -10,23 +10,23 @@ function quantity(field) {
 
 function calc_total() {
     var total = 0;
-    if (document.getElementById('hostedrepo').checked) {
+    if (!!document.getElementById('hostedrepo') && document.getElementById('hostedrepo').checked) {
         q = quantity('hostedrepo_q');
         total += q*prices().hostedrepo;
     }
-    if (document.getElementById('dataoneplus').checked) {
+    if (!!document.getElementById('dataoneplus') && document.getElementById('dataoneplus').checked) {
         q = quantity('dataoneplus_q');
         total += q*prices().dataoneplus;
     }
-    if (document.getElementById('hastorage').checked) {
+    if (!!document.getElementById('hastorage') && document.getElementById('hastorage').checked) {
         q = quantity('hastorage_q');
         total += q*prices().hastorage;
     }
-    if (document.getElementById('curation').checked) {
+    if (!!document.getElementById('curation') && document.getElementById('curation').checked) {
         q = quantity('curation_q');
         total += q*prices().curation;
     }
-    if (document.getElementById('customdev').checked) {
+    if (!!document.getElementById('customdev') && document.getElementById('customdev').checked) {
         q = quantity('customdev_q');
         total += q*prices().customdev;
     }
@@ -36,23 +36,23 @@ function calc_total() {
 
 function products_selected() {
     var products = "";
-    if (document.getElementById('hostedrepo').checked) {
+    if (!!document.getElementById('hostedrepo') && document.getElementById('hostedrepo').checked) {
         q = quantity('hostedrepo_q');
         products += "HostedRepo(" + q + ");";
     }
-    if (document.getElementById('dataoneplus').checked) {
+    if (!!document.getElementById('dataoneplus') && document.getElementById('dataoneplus').checked) {
         q = quantity('dataoneplus_q');
         products += "DataONEPlus(" + q + ");";
     }
-    if (document.getElementById('hastorage').checked) {
+    if (!!document.getElementById('hastorage') && document.getElementById('hastorage').checked) {
         q = quantity('hastorage_q');
         products += "HAStorage(" + q + ");";
     }
-    if (document.getElementById('curation').checked) {
+    if (!!document.getElementById('curation') && document.getElementById('curation').checked) {
         q = quantity('curation_q');
         products += "Curation(" + q + ");";
     }
-    if (document.getElementById('customdev').checked) {
+    if (!!document.getElementById('customdev') && document.getElementById('customdev').checked) {
         q = quantity('customdev_q');
         products += "CustomDev(" + q + ");";
     }
@@ -93,7 +93,44 @@ function checkout() {
     }
 }
 
-window.onload = function(){
+function populate_form() {
+    let html = `    <header>
+                    <div class="col"></div>
+                    <div class="col">Quantity</div>
+                    <div class="col right-text">Item Price</div>
+                </header>`;
+
+    for (const product of prods) {
+        html += `
+                  <div class="row">
+                    <div class="col">            
+                        <input type="checkbox" id="${product}" name="${labels()[product]}" onchange="change_listener()">
+                        <label for="${labels()[product]}">${labels()[product]}</label>
+                    </div>
+                    <div class="col">            
+                        <input type="input" id="${product}_q" name="${labels()[product]}Q" class="qinput" value="1" onchange="change_listener()">
+                    </div>
+                    <div class="col currency right-text">${prices()[product]}</div>
+                </div>`
+    }
+
+    html += `
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">Total: </div>
+            <div class="col currency right-text" id="total_price">0.00</div>
+        </div>`;
+
+    document.getElementById("ptable").innerHTML = html;
+}
+
+window.onload = function() {
+    populate_form();
     var checkout_button = document.getElementById("checkout");
     if (checkout_button.addEventListener)
         checkout_button.addEventListener("click", checkout, false);
