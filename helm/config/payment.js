@@ -100,7 +100,7 @@ function populate_form() {
                     <div class="col right-text">Item Price</div>
                 </header>`;
 
-    for (const product of prods) {
+    for (const product of products) {
         html += `
                   <div class="row">
                     <div class="col">            

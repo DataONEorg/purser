@@ -15,6 +15,7 @@ function prices() {
     prices_.customdev = 915.00
     return(prices_);
 }
+
 function labels() {
     labels_ = {};
     labels_.dataoneplus = "DataONE Plus";
@@ -26,4 +27,4 @@ function labels() {
 }
 
 //let prods = ["dataoneplus", "hostedrepo", "hastorage", "curation", "customdev"];
-let prods = ["dataoneplus", "hastorage"];
+let products = ["dataoneplus", "hastorage"];
