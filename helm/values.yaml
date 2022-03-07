@@ -5,7 +5,7 @@
 replicaCount: 1
 
 purser:
-  purser_url: "https://cert.payconex.net/paymentpage/enhanced/?action=view&"
+  purser_url: "https://cert.payconex.net/paymentpage/enhanced/?action=view"
   client_key: "220614974061"
   form_id: "31721"
 
