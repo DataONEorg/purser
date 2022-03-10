@@ -16,7 +16,10 @@
         <div class="product-select" id="products">
             <p>Select products for payment:</p>
             <section id="ptable"></section>
-
+            <p id="tos_link">
+                <input type="checkbox" id="tos_box" name="tos_check">
+                <label for="tos_check">I am authorized and agree to the <a href="tos.html">Terms of Service</a>.</label>
+            </p>
             <button id="checkout"><span>Checkout</span></button>
             <script type="text/javascript" src="js/purser.js"></script>
             <script type="text/javascript" src="js/payment.js"></script>
@@ -29,6 +32,7 @@
             scrolling="no"
             seamless="seamless">
         </iframe>
+        <div id="tos"/>
     </div>
 </body>
 </html>

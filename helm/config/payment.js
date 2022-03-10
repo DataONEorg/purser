@@ -1,5 +1,6 @@
 function change_listener() {
-    document.getElementById('total_price').innerText = calc_total();
+    var total = calc_total();
+    document.getElementById('total_price').innerText = total;
 }
 
 function quantity(field) {
@@ -80,13 +81,15 @@ function hide_products() {
 function checkout() {
     var amount = calc_total();
     var prod_list = products_selected();
-    if (amount > 0) {
+    if (amount > 0 && document.getElementById('tos_box').checked ) {
         var orderid = create_order();
         //var pay_base_url = "https://cert.payconex.net/paymentpage/enhanced/?action=view&aid=220614974061&id=31721";
         var pay_base_url = config.purser.purser_url + "&aid=" + config.purser.client_key + "&id=" + config.purser.form_id;
         var payment_url = pay_base_url + "&amount=" + amount + "&orderid=" + orderid + "&products=" + prod_list;
         hide_products();
         update_iframe(payment_url);
+    } else if (!document.getElementById('tos_box').checked) {
+        document.getElementById( 'tos_link' ).classList.add("required");
     } else {
         update_iframe(" ");
         alert( "Your cart is empty. Select products and try again.");
@@ -102,7 +105,7 @@ function populate_form() {
 
     for (const product of products) {
         html += `
-                  <div class="row">
+                  <div class="row" id="${product}_row">
                     <div class="col">            
                         <input type="checkbox" id="${product}" name="${labels()[product]}" onchange="change_listener()">
                         <label for="${labels()[product]}">${labels()[product]}</label>

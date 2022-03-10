@@ -50,6 +50,10 @@ button:hover span:after {
     transition: all 0.5s;
 }
 
+.required {
+    color: red;
+}
+
 section#ptable {
     display: table;
     width: 30%;

@@ -26,5 +26,5 @@ function labels() {
     return(labels_);
 }
 
-//let prods = ["dataoneplus", "hostedrepo", "hastorage", "curation", "customdev"];
+//let products = ["dataoneplus", "hostedrepo", "hastorage", "curation", "customdev"];
 let products = ["dataoneplus", "hastorage"];
