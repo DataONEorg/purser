@@ -13,6 +13,7 @@ function prices() {
     prices_.hastorage = 150.00
     prices_.curation = 689.00
     prices_.customdev = 915.00
+    //prices_.customdev = Math.round((915.00/8 + Number.EPSILON) * 100) / 100;
     return(prices_);
 }
 
@@ -20,9 +21,9 @@ function labels() {
     labels_ = {};
     labels_.dataoneplus = "DataONE Plus";
     labels_.hostedrepo = "Hosted Repository";
-    labels_.hastorage = "HA Storage (1 TB)";
-    labels_.curation = "Data Curation (1 day)";
-    labels_.customdev = "Design and Development (1 day)";
+    labels_.hastorage = "HA Storage (/TB)";
+    labels_.curation = "Data Curation (/day)";
+    labels_.customdev = "Design-Development (/day)";
     return(labels_);
 }
 
