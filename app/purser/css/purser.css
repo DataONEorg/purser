@@ -1,48 +1,20 @@
 .container {
   margin: 25px;
 }
-button {
-    display: inline-block;
+.primary {
     background-color: #134b47;
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
-    text-align: center;
-    font-size: 28px;
-    padding: 8px;
-    width: 7em;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
 }
 
-button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
+.btn-primary {
+    color: #fff;
+    background-color: #185e70;
+    border-color: #185e70;
 }
 
-button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
-button:hover {
-    background-color: #26435C;
-}
-
-button:hover span {
-    padding-right: 25px;
-}
-
-button:hover span:after {
-    opacity: 1;
-    right: 0;
+.btn-primary:hover {
+    color: #fff;
+    background-color: #1b445e;
+    border-color: #185e70;
 }
 
 .hidden {

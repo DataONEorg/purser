@@ -1,6 +1,7 @@
 function change_listener() {
     var total = calc_total();
     document.getElementById('total_price').innerText = total;
+    document.getElementById('service_fee').innerText = total;
 }
 
 function quantity(field) {
@@ -132,8 +133,16 @@ function populate_form() {
     document.getElementById("ptable").innerHTML = html;
 }
 
+populate_dates = function() {
+    var dt = new Date().toISOString();
+    document.getElementById('agreement_date').innerHTML=dt;
+    document.getElementById('signed_date1').innerHTML=dt;
+    document.getElementById('signed_date2').innerHTML=dt;
+}
+
 window.onload = function() {
     populate_form();
+    populate_dates();
     var checkout_button = document.getElementById("checkout");
     if (checkout_button.addEventListener)
         checkout_button.addEventListener("click", checkout, false);
