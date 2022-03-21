@@ -12,59 +12,43 @@ function quantity(field) {
 
 function calc_total() {
     var total = 0;
-    if (!!document.getElementById('hostedrepo') && document.getElementById('hostedrepo').checked) {
-        q = quantity('hostedrepo_q');
-        total += q*prices().hostedrepo;
-        show_terms('hostedrepo');
+    for (const product of products) {
+        if (!!document.getElementById(product) && document.getElementById(product).checked) {
+            q = quantity(product+'_q');
+            total += q*prices()[product];
+            show_terms(product);
+        } else if (!!document.getElementById(product) && !document.getElementById(product).checked) {
+            hide_terms(product);
+        }
     }
-    if (!!document.getElementById('dataoneplus') && document.getElementById('dataoneplus').checked) {
-        q = quantity('dataoneplus_q');
-        total += q*prices().dataoneplus;
-        show_terms('dataoneplus');
-    }
-    if (!!document.getElementById('hastorage') && document.getElementById('hastorage').checked) {
-        q = quantity('hastorage_q');
-        total += q*prices().hastorage;
-        show_terms('hastorage');
-    }
-    if (!!document.getElementById('curation') && document.getElementById('curation').checked) {
-        q = quantity('curation_q');
-        total += q*prices().curation;
-        show_terms('curation');
-    }
-    if (!!document.getElementById('customdev') && document.getElementById('customdev').checked) {
-        q = quantity('customdev_q');
-        total += q*prices().customdev;
-        show_terms('customdev');
-    }
-
     return(total);
 }
 
 function products_selected() {
-    var products = "";
+    var prod_string = "";
+    
     if (!!document.getElementById('hostedrepo') && document.getElementById('hostedrepo').checked) {
         q = quantity('hostedrepo_q');
-        products += "HostedRepo(" + q + ");";
+        prod_string += "HostedRepo(" + q + ");";
     }
     if (!!document.getElementById('dataoneplus') && document.getElementById('dataoneplus').checked) {
         q = quantity('dataoneplus_q');
-        products += "DataONEPlus(" + q + ");";
+        prod_string += "DataONEPlus(" + q + ");";
     }
     if (!!document.getElementById('hastorage') && document.getElementById('hastorage').checked) {
         q = quantity('hastorage_q');
-        products += "HAStorage(" + q + ");";
+        prod_string += "HAStorage(" + q + ");";
     }
     if (!!document.getElementById('curation') && document.getElementById('curation').checked) {
         q = quantity('curation_q');
-        products += "Curation(" + q + ");";
+        prod_string += "Curation(" + q + ");";
     }
     if (!!document.getElementById('customdev') && document.getElementById('customdev').checked) {
         q = quantity('customdev_q');
-        products += "CustomDev(" + q + ");";
+        prod_string += "CustomDev(" + q + ");";
     }
 
-    return(products);
+    return(prod_string);
 }
 
 function random_orderid(min, max) {
@@ -86,6 +70,10 @@ function hide_products() {
 
 function show_terms(product) {
     document.getElementById( 'terms-'+product ).classList.remove("hidden");
+}
+
+function hide_terms(product) {
+    document.getElementById( 'terms-'+product ).classList.add("hidden");
 }
 
 function checkout() {
