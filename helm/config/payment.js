@@ -15,22 +15,27 @@ function calc_total() {
     if (!!document.getElementById('hostedrepo') && document.getElementById('hostedrepo').checked) {
         q = quantity('hostedrepo_q');
         total += q*prices().hostedrepo;
+        show_terms('hostedrepo');
     }
     if (!!document.getElementById('dataoneplus') && document.getElementById('dataoneplus').checked) {
         q = quantity('dataoneplus_q');
         total += q*prices().dataoneplus;
+        show_terms('dataoneplus');
     }
     if (!!document.getElementById('hastorage') && document.getElementById('hastorage').checked) {
         q = quantity('hastorage_q');
         total += q*prices().hastorage;
+        show_terms('hastorage');
     }
     if (!!document.getElementById('curation') && document.getElementById('curation').checked) {
         q = quantity('curation_q');
         total += q*prices().curation;
+        show_terms('curation');
     }
     if (!!document.getElementById('customdev') && document.getElementById('customdev').checked) {
         q = quantity('customdev_q');
         total += q*prices().customdev;
+        show_terms('customdev');
     }
 
     return(total);
@@ -77,6 +82,10 @@ function update_iframe(target_url) {
 
 function hide_products() {
     document.getElementById( 'products' ).classList.add("hidden");
+}
+
+function show_terms(product) {
+    document.getElementById( 'terms-'+product ).classList.remove("hidden");
 }
 
 function checkout() {
