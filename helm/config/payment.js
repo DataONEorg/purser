@@ -144,6 +144,22 @@ window.onload = function() {
     if (checkout_button.addEventListener)
         checkout_button.addEventListener("click", checkout, false);
     else if (checkout_button.attachEvent)
-        checkout_button.attachEvent('onclick', checkout);
+        checkout_button.attachEvent('onclick', checkout);    
 }
 
+function savePDF() {
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+    doc.fromHTML( 
+        document.getElementById('tos-body').innerHTML, 15, 15, 
+        {
+            'width': 170,
+            'elementHandlers': specialElementHandlers
+        }
+    );
+    doc.save('sample-file.pdf');
+}
