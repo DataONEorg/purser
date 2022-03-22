@@ -148,18 +148,22 @@ window.onload = function() {
 }
 
 function savePDF() {
-    var doc = new jsPDF();
+    window.jsPDF = window.jspdf.jsPDF;
+    window.html2canvas = html2canvas;
+    var pdf = new jsPDF('p', 'pt', 'letter', hotfixes = ["px_scaling"]);
     var specialElementHandlers = {
         '#editor': function (element, renderer) {
             return true;
         }
     };
-    doc.fromHTML( 
-        document.getElementById('tos-body').innerHTML, 15, 15, 
-        {
-            'width': 170,
-            'elementHandlers': specialElementHandlers
+    pdf.html(
+        document.getElementById('tos-body'), {
+            callback: function (pdf) {
+                pdf.save();
+            },
+            margin: [20,15,20,15],
+            autoPaging: 'true',
+            filename: 'dataone-tos.pdf'
         }
     );
-    doc.save('sample-file.pdf');
 }
