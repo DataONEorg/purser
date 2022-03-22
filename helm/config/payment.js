@@ -151,17 +151,14 @@ function savePDF() {
     window.jsPDF = window.jspdf.jsPDF;
     window.html2canvas = html2canvas;
     var pdf = new jsPDF('p', 'pt', 'letter', hotfixes = ["px_scaling"]);
-    var specialElementHandlers = {
-        '#editor': function (element, renderer) {
-            return true;
-        }
-    };
+    pdf.setFontSize(12);
     pdf.html(
-        document.getElementById('tos-body'), {
+        document.getElementById('tos-body'), 
+        {
             callback: function (pdf) {
-                pdf.save();
+                pdf.output('pdfobjectnewwindow');
             },
-            margin: [20,15,20,15],
+            margin: [20,15,20,10],
             autoPaging: 'true',
             filename: 'dataone-tos.pdf'
         }
