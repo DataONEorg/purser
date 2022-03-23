@@ -1,20 +1,45 @@
-.container {
-  margin: 25px;
+:root {
+    --primary-color: #16acc0;
+    --primary-color-transparent: rgba(22, 172, 192, .7);
+    --secondary-color: #18556e;
+    --secondary-color-transparent: rgba(24, 85, 110, .7);
+    --accent-color: #EED268;
+    --accent-color-transparent: rgba(238, 210, 104, .7);
 }
+
+.one {
+    color: white;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+.container {
+    margin: 25px;
+}
+
 .primary {
-    background-color: #134b47;
+    background-color: var(--primary-color);
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #185e70;
-    border-color: #185e70;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-.btn-primary:hover {
+.btn-primary:focus {
     color: #fff;
-    background-color: #1b445e;
-    border-color: #185e70;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 .25rem var(--secondary-color-transparent);
+}
+
+.btn-primary:hover, .btn-primary:active {
+    color: #fff;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 
 .hidden {
@@ -28,7 +53,7 @@
 
 section#ptable {
     display: table;
-    width: 30%;
+    width: 40%;
     margin-bottom: 2rem;
 }
   
