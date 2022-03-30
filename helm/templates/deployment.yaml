@@ -44,6 +44,12 @@ spec:
             - mountPath: /usr/share/nginx/html/purser/js/payment.js
               subPath: payment.js
               name: {{ .Release.Name }}-config-volume
+            - mountPath: /usr/share/nginx/html/purser/index.html
+              subPath: index.html
+              name: {{ .Release.Name }}-config-volume
+            - mountPath: /usr/share/nginx/html/purser/css/purser.css
+              subPath: purser.css
+              name: {{ .Release.Name }}-config-volume
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
