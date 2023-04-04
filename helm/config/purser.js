@@ -8,10 +8,10 @@ var config = {
 
 function prices() {
     prices_ = {};
-    prices_.dataoneplus = 575.04;
+    prices_.dataoneplus = 578.52;
     prices_.hostedrepo = 12999.96
     prices_.hastorage = 150.00
-    prices_.curation = 689.00
+    prices_.curation = 698.28
     prices_.customdev = 915.00
     //prices_.customdev = Math.round((915.00/8 + Number.EPSILON) * 100) / 100;
     return(prices_);
