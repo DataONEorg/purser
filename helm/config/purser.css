@@ -76,3 +76,13 @@ section#ptable .qinput {
 .right-text {
   text-align: end;
 }
+
+.version {
+    font-style: italic;
+    font-size: 0.5em;
+    padding-top: 2em;
+}
+
+.version::before {
+    content: "Version: ";
+}

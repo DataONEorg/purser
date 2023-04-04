@@ -2,7 +2,8 @@ var config = {
     "purser": {
         "purser_url": "{{ .Values.purser.purser_url }}",
         "client_key": "{{ .Values.purser.client_key }}",
-        "form_id": "{{ .Values.purser.form_id }}"
+        "form_id": "{{ .Values.purser.form_id }}",
+        "version": "{{ .Chart.Version }}"
     }
 }
 
@@ -27,5 +28,10 @@ function labels() {
     return(labels_);
 }
 
+function purser_version() {
+    return(config.purser.version);
+}
+
 let products = ["dataoneplus", "hastorage", "curation", "customdev"];
 //let products = ["dataoneplus", "hostedrepo", "hastorage", "curation", "customdev"];
+purser_version();

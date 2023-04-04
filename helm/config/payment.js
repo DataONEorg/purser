@@ -128,6 +128,7 @@ function populate_form() {
         </div>`;
 
     document.getElementById("ptable").innerHTML = html;
+    document.getElementById('version').innerText = purser_version();
 }
 
 populate_dates = function() {
